@@ -7,6 +7,9 @@ on:
 jobs:
   cypress-tests:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: client
 
     steps:
       - uses: actions/checkout@v4
@@ -16,12 +19,15 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install client dependencies
-        run: cd client && npm install
+      - name: Install dependencies
+        run: npm install
 
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          start: cd client && npm run dev -- --host
+          start: npm run dev -- --host
           wait-on: http://localhost:5173
-          wait-on-timeout: 60 
+          wait-on-timeout: 60
+        env:
+          # If your Cypress config uses any environment variables, define them here
+          # Example: CYPRESS_BASE_URL: http://localhost:5173
