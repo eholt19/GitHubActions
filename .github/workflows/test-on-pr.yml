@@ -10,19 +10,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Install dependencies
-        run: npm ci
-      - name: Build app (if needed)
-        run: npm run build || echo "No build step"
-      - name: Start server
-        run: npm start &
-      - name: Wait for server to be ready
-        run: npx wait-on http://localhost:3000
+
+      - name: Install client dependencies
+        run: cd client && npm install
+
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          start: npm start
+          start: cd client && npm run dev -- --host
+          wait-on: http://localhost:5173
+          wait-on-timeout: 60 
