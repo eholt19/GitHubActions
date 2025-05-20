@@ -23,7 +23,8 @@ jobs:
       - name: Start dev server
         working-directory: client
         run: npm run dev -- --host &
-      
+        shell: bash
+
       - name: Wait for dev server
         run: npx wait-on http://localhost:5173
 
