@@ -28,6 +28,3 @@ jobs:
           start: npm run dev -- --host
           wait-on: http://localhost:5173
           wait-on-timeout: 60
-        env:
-          # If your Cypress config uses any environment variables, define them here
-          # Example: CYPRESS_BASE_URL: http://localhost:5173
