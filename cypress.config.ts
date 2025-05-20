@@ -1,20 +1,21 @@
 import { defineConfig } from 'cypress';
-import viteConfig from './vite.config';
 
 export default defineConfig({
+  e2e: {
+    baseUrl: 'http://localhost:5173',
+    specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
+    setupNodeEvents(_on, _config) {
+      // Node event listeners for e2e tests
+    },
+  },
   component: {
-    port: 5173,
     devServer: {
       framework: 'react',
       bundler: 'vite',
-      viteConfig,
     },
-  },
-
-  e2e: {
-    baseUrl: 'http://localhost:3001',
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
+    specPattern: 'cypress/component/**/*.cy.{js,jsx,ts,tsx}',
+    setupNodeEvents(_on, _config) {
+      // Node event listeners for component tests
     },
   },
 });
