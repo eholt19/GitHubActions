@@ -1,5 +1,5 @@
 import React from "react";
-import Quiz from "../../client/src/components/Quiz"
+import Quiz from "../../src/components/Quiz"
 
 describe('Quiz Component', () => {
   beforeEach(() => {
