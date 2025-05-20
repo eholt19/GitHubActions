@@ -7,9 +7,6 @@ on:
 jobs:
   cypress-tests:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: client
 
     steps:
       - uses: actions/checkout@v4
@@ -19,12 +16,17 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies
+      - name: Install client dependencies
+        working-directory: client
         run: npm install
 
+      - name: Start dev server
+        working-directory: client
+        run: npm run dev -- --host &
+      
+      - name: Wait for dev server
+        run: npx wait-on http://localhost:5173
+
       - name: Run Cypress tests
-        uses: cypress-io/github-action@v6
-        with:
-          start: npm run dev -- --host
-          wait-on: http://localhost:5173
-          wait-on-timeout: 60
+        working-directory: client
+        run: npx cypress run
