@@ -52,9 +52,13 @@ This project demonstrates the use of GitHub Actions for Continuous Integration a
 ## Technologies Used
 
 * React
+
 * Vite
+
 * Cypress
+
 * GitHub Actions
+
 * Render
 
 ## CI/CD Pipeline Summary
