@@ -9,7 +9,7 @@ This project demonstrates the use of GitHub Actions for Continuous Integration a
 - **CI/CD:** GitHub Actions
 - **Deployment:** [Render](https://githubactions-d5f5.onrender.com)
 
-## Live Site
+## 🚀 Live Site
 
 [View the deployed app on Render](https://githubactions-d5f5.onrender.com)
 
@@ -20,52 +20,55 @@ This project demonstrates the use of GitHub Actions for Continuous Integration a
 ## 🏗️ How CI/CD Works
 
 - **Cypress Tests on PR:**  
-  When a Pull Request is made to the `develop` branch, GitHub Actions runs Cypress tests automatically.
+  When a Pull Request is made to the `develop` branch, GitHub Actions automatically runs Cypress component tests.
 - **Deploy on Main:**  
   When code is pushed or merged to the `main` branch, GitHub Actions triggers a deploy on Render via a deploy hook.  
   This ensures that the latest version is always live.
+
+## 🧪 Automated Cypress Testing on Pull Requests
+
+- Every Pull Request opened into the `develop` branch triggers a GitHub Actions workflow to run all Cypress component tests.  
+- Test results appear in the PR checks and in the Actions tab for easy review.
 
 ## 🖼️ Screenshots
 
 *Successful GitHub Actions Workflow:*
 
-![GitHub Actions Success Screenshot](./assets/github-actions-success.png)
+![GitHub Actions Success Screenshot](./assets/githubactions.png)
 
 *Render Deploy Hook Event:*
 
-![Render Deploy Success Screenshot](./assets/render-deploy-success.png)
+![Render Deploy Success Screenshot](./assets/Screen%20Shot%202025-05-19%20at%207.09.54%20PM.png)
 
-> Replace these image links with your actual screenshot files if you have them!
 
 ## 🧑‍💻 How to Run Locally
 
-1. Clone the repo
-   ```bash
-   git clone GITHUB_REPO_URL_HERE
-   cd <repo-folder>
+1. Clone the repo:
+    ```bash
+    git clone https://github.com/eholt19/GitHubActions.git
+    cd GitHubActions
+    ```
 2. Install dependencies and run the frontend:
+    ```bash
     cd client
     npm install
     npm run dev
-3. Open http://localhost:5173 in your browser.
+    ```
+3. Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-## Technologies Used
+## ⚡ Technologies Used
 
-* React
+- React
+- Vite
+- Cypress
+- GitHub Actions
+- Render
 
-* Vite
+## 📋 CI/CD Pipeline Summary
 
-* Cypress
+- **Test on PRs:** Cypress component tests are triggered for every pull request to `develop` and must pass before merging.
+- **Automatic Deployment:** On merge or push to `main`, a GitHub Actions workflow calls the Render deploy hook to redeploy the app.
 
-* GitHub Actions
+## License
 
-* Render
-
-## CI/CD Pipeline Summary
-
-* Test on PRs: Cypress tests are triggered for every pull request to develop.
-* Automatic Deployment: On merge or push to main, a GitHub Actions workflow calls the Render deploy hook to redeploy the app.
-
-## Licence
-
-* MIT
+MIT
