@@ -19,5 +19,8 @@ jobs:
       - name: Install all dependencies
         run: npm install
 
+      - name: Install Cypress binary
+        run: npx cypress install
+
       - name: Run Cypress component tests
         run: npx cypress run --component
